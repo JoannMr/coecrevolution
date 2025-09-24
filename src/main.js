@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFloatingCTA();
   initMobileMenu();
   initHeaderEffects();
+  initTeamModal();
+  // loadTeamBiosFromMarkdown(); // No longer needed: bios are now embedded in HTML
 });
 
 // =============================================================================
@@ -650,3 +652,155 @@ export {
   createIntersectionObserver,
   showNotification
 };
+
+// =============================================================================
+// TEAM MODAL + BIOS FROM MARKDOWN (V1)
+// =============================================================================
+
+function initTeamModal() {
+  const overlay = document.getElementById('teamModalOverlay');
+  const closeBtn = document.getElementById('teamModalClose');
+  const contentEl = document.getElementById('teamModalContent');
+  const titleEl = document.getElementById('teamModalTitle');
+  const roleEl = document.getElementById('teamModalRole');
+  const imageEl = document.getElementById('teamModalImage');
+
+  if (!overlay) return;
+
+  let lastFocusedElement = null;
+
+  function openModal({ name, role, imageSrc, bio }) {
+    lastFocusedElement = document.activeElement;
+
+    titleEl.textContent = name || '';
+    roleEl.textContent = role || '';
+    imageEl.src = imageSrc || '';
+    imageEl.alt = `Fotografia de ${name}`;
+    contentEl.textContent = bio || '';
+
+    overlay.classList.add('active');
+    overlay.removeAttribute('aria-hidden');
+
+    // Focus management
+    closeBtn.focus();
+
+    // Lock scroll
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+
+    // Restore focus
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    }
+  }
+
+  // Close interactions
+  closeBtn?.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (overlay.classList.contains('active') && e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // Attach open handlers to team cards
+  document.querySelectorAll('.team-member.card').forEach((card) => {
+    card.setAttribute('type', 'button');
+    card.addEventListener('click', () => {
+      const name = card.querySelector('.member-name')?.textContent?.trim();
+      const role = card.dataset.role || card.querySelector('.member-role')?.textContent?.trim();
+      const img = card.querySelector('img')?.getAttribute('src');
+
+      // Read bio embedded in HTML (preferred) or from data-bio
+      const bio = (card.querySelector('.member-bio')?.textContent || card.dataset.bio || '').trim();
+
+      openModal({ name, role, imageSrc: img, bio });
+    });
+
+    // Keyboard accessibility for buttons is native; ensure Enter triggers click if divs were used
+    card.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && !card.disabled) {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+}
+
+// In-memory maps for bios
+const biosBySlug = new Map();
+const biosByName = new Map();
+
+function loadTeamBiosFromMarkdown() {
+  fetch('./textos.md')
+    .then((res) => res.ok ? res.text() : Promise.reject(new Error('No es pot carregar textos.md')))
+    .then((md) => {
+      const entries = parseSimpleMarkdownPairs(md);
+      for (const { name, bio } of entries) {
+        if (!name || !bio) continue;
+        const cleanName = name.replace(/\s+/g, ' ').trim();
+        const slug = slugify(cleanName);
+        biosBySlug.set(slug, bio.trim());
+        biosByName.set(cleanName, bio.trim());
+      }
+    })
+    .catch((err) => {
+      console.warn('Error carregant bios:', err);
+    });
+}
+
+// Expecting format: Blocks with first line = Name, following lines until blank line = Bio
+function parseSimpleMarkdownPairs(md) {
+  const lines = md.split(/\r?\n/);
+  const blocks = [];
+  let currentName = null;
+  let currentBio = [];
+
+  function pushCurrent() {
+    if (currentName) {
+      const bio = currentBio.join('\n').trim();
+      blocks.push({ name: currentName.trim(), bio });
+    }
+    currentName = null;
+    currentBio = [];
+  }
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (!currentName) {
+      const candidate = line.trim();
+      if (candidate) {
+        currentName = candidate;
+      }
+    } else {
+      if (line.trim() === '' && currentBio.length > 0) {
+        // end of block
+        pushCurrent();
+      } else if (line.trim() === '' && currentBio.length === 0) {
+        // skip extra blank lines between name and bio
+        continue;
+      } else {
+        currentBio.push(line);
+      }
+    }
+  }
+  // push last
+  if (currentName && currentBio.length) pushCurrent();
+  return blocks;
+}
+
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+}
