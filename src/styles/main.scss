@@ -1303,7 +1303,7 @@ body {
 // Team Section
 // -----------------------------------------------------------------------------
 .team-section {
-  padding: 100px 0;
+  padding: 0 0 100px 0;
   background: linear-gradient(135deg, var(--pure-white) 0%, #F8FFFE 100%);
   position: relative;
   overflow: hidden;
@@ -1464,8 +1464,8 @@ body {
     box-shadow: var(--elevation-2);
     }
     }
+    }
   }
-}
 
 
 
