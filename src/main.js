@@ -172,18 +172,18 @@ function initAnimations() {
   
   // Team section animations - simplified to avoid visibility issues
   gsap.set('.team-member', { opacity: 1 }); // Ensure team cards are always visible
-  ScrollTrigger.batch('.team-member', {
-    onEnter: (elements) => {
-      gsap.from(elements, {
-        duration: 0.6,
-        y: 30,
-        stagger: 0.1,
-        ease: 'power2.out'
-      });
-    },
-    start: 'top 85%',
-    once: true
-  });
+  // ScrollTrigger.batch('.team-member', {
+  //   onEnter: (elements) => {
+  //     gsap.from(elements, {
+  //       duration: 0.6,
+  //       y: 30,
+  //       stagger: 0.1,
+  //       ease: 'power2.out'
+  //     });
+  //   },
+  //   start: 'top 85%',
+  //   once: true
+  // });
   
   // Subtle hover effect for team cards
   document.querySelectorAll('.team-member').forEach(member => {
