@@ -1,0 +1,76 @@
+// Base styles extracted from main.scss
+
+// Design Tokens
+:root {
+  // Colors
+  --primary-dark-teal: #0D4650;
+  --accent-neon-green: #DCF940;
+  --surface-light-grey: #DDE3E6;
+  --neutral-grey: #767676;
+  --neutral-black: #000000;
+  --pure-white: #FFFFFF;
+  
+  // Gradients
+  --image-overlay-accent: linear-gradient(0deg, rgba(220,249,64,0.60) 0%, rgba(220,249,64,0.60) 100%);
+  
+  // Shadows
+  --elevation-1: 0 4px 12px rgba(0,0,0,0.10);
+  
+  // Radii
+  --radius-none: 0;
+  --radius-soft: 8px;
+  
+  // Typography
+  --font-display: 'TT Ramillas', serif;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+// Reset & Base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--primary-dark-teal);
+  background-color: var(--pure-white);
+  overflow-x: hidden;
+}
+
+// Typography Classes
+.txt-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--primary-dark-teal);
+}
+
+.txt-headline {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--accent-neon-green);
+}
+
+.txt-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--primary-dark-teal);
+}
+
+.txt-caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--neutral-grey);
+}

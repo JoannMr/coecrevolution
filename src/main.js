@@ -15,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   initNavigation();
-  initFloatingCTA();
   initMobileMenu();
   initHeaderEffects();
   initTeamModal();
@@ -250,46 +249,6 @@ function initAnimations() {
 
   
   // Vision cards animations
-  ScrollTrigger.batch('.vision-main-card', {
-    onEnter: (elements) => {
-      gsap.from(elements, {
-        duration: 1,
-        scale: 0.9,
-        y: 30,
-        ease: 'power3.out'
-      });
-    },
-    start: 'top 85%',
-    once: true
-  });
-  
-  ScrollTrigger.batch('.vision-feature-card', {
-    onEnter: (elements) => {
-      gsap.from(elements, {
-        duration: 0.8,
-        y: 40,
-        stagger: 0.15,
-        ease: 'power3.out'
-      });
-    },
-    start: 'top 85%',
-    once: true
-  });
-  
-  // Commitments cards animation
-  ScrollTrigger.batch('.commitment-card', {
-    onEnter: (elements) => {
-      gsap.from(elements, {
-        duration: 0.6,
-        y: 30,
-        stagger: 0.1,
-        ease: 'power2.out'
-      });
-    },
-    start: 'top 85%',
-    once: true
-  });
-  
   
   // Scroll-triggered animations for future sections (exclude team and differential cards)
   ScrollTrigger.batch('.card:not(.team-member):not(.differential-card)', {
@@ -419,29 +378,6 @@ function updateActiveNavLink(targetId = null) {
 // =============================================================================
 // FLOATING CTA
 // =============================================================================
-
-function initFloatingCTA() {
-  const floatingCTA = document.querySelector('.floating-cta');
-  
-  // Show/hide based on scroll position
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-    
-    if (scrollY > windowHeight * 0.5) {
-      floatingCTA.style.opacity = '1';
-      floatingCTA.style.transform = 'translateY(0)';
-    } else {
-      floatingCTA.style.opacity = '0';
-      floatingCTA.style.transform = 'translateY(20px)';
-    }
-  });
-
-  // Initial state
-  floatingCTA.style.opacity = '0';
-  floatingCTA.style.transform = 'translateY(20px)';
-  floatingCTA.style.transition = 'all 0.3s ease';
-}
 
 // =============================================================================
 // MOBILE MENU - Enhanced Experience
@@ -646,7 +582,6 @@ export {
   initAnimations,
   initNavigation,
   initHeaderEffects,
-  initFloatingCTA,
   initMobileMenu,
   debounce,
   createIntersectionObserver,

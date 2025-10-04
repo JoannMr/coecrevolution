@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="./src/styles/main.scss">
+    <link rel="stylesheet" href="./src/styles/app.scss">
 </head>
 <body>
     <!-- Header Navigation -->
@@ -63,13 +63,6 @@
 
                 <!-- Actions Section -->
                 <div class="nav-actions">
-                    <button class="btn-outline nav-support-btn" type="button">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="btn-icon">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                        <span>Dona'ns suport</span>
-                    </button>
-                    
                     <!-- Professional Contact Button -->
                     <a href="#contacto" class="btn-primary nav-contact-btn">
                         <span>Contacta'ns</span>
@@ -116,12 +109,6 @@
                         </ul>
                         
                         <div class="mobile-nav-actions">
-                            <button class="btn-outline mobile-support-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="2" fill="none"/>
-                                </svg>
-                                Dona'ns suport
-                            </button>
                             <a href="#contacto" class="btn-primary mobile-contact-btn">
                                 Contacta'ns
                             </a>
@@ -203,6 +190,7 @@
                         <h3 class="member-name">Dra. Maria José Guerrero</h3>
                         <p class="member-role">Presidenta</p>
                     </div>
+                    <p class="member-bio" hidden>Odontòloga especialitzada en implantologia i odontologia estètica, amb experiència en gestió i docència com a coordinadora de CFGS en Higiene Bucodental i Pròtesis Dentals. La seva formació en escoles de negocis li aporta capacitat per liderar projectes i equips d’alt rendiment. Implicada i perfeccionista, aposta per un COEC modern i proper als col·legiats.</p>
                 </button>
                 
                 <button class="team-member card" data-slug="jose-nart" data-role="Vicepresident" aria-haspopup="dialog">
@@ -214,7 +202,7 @@
                         <h3 class="member-name">Dr. José Nart</h3>
                         <p class="member-role">Vicepresident</p>
                     </div>
-                    <p class="member-bio" hidden>El Dr. José Nart és un referent de prestigi internacional en periodòncia, amb una impressionant trajectòria acadèmica i científica. Amb el seu mandat com a president de la SEPA a punt de finalitzar, porta tot el seu lideratge, coneixement i la seva posició en el 2% dels investigadors més influents de Stanford per liderar l'excel·lència i el rigor al COEC com a vicepresident. Un professional que ho donarà tot per elevar la qualitat de la professió.</p>
+                    <p class="member-bio" hidden>El Dr. José Nart és un referent de prestigi internacional en periodòncia, amb una impressionant trajectòria acadèmica i científica. Membre de la Comissió d’Especialitats en Odontologia, ha defensat sempre el progrés i el reconeixement de la professió.Amb el seu mandat com a president de la SEPA a punt de finalitzar, porta tot el seu lideratge, coneixement i la seva posició en el 2% dels investigadors més influents de Stanford per liderar l'excel·lència i el rigor al COEC com a vicepresident. Un professional que ho donarà tot per elevar la qualitat de la professió.</p>
                 </button>
                 
                 <button class="team-member card" data-slug="llatzer-fernandez" data-role="Secretari" aria-haspopup="dialog">
@@ -250,6 +238,7 @@
                         <h3 class="member-name">Dra. Miriam Frías</h3>
                         <p class="member-role">Tresorera</p>
                     </div>
+                    <p class="member-bio" hidden>La Míriam és ortodoncista exclusiva amb una sòlida trajectòria clínica i una formació complementària en gestió (MBA) i màrqueting. Aquesta combinació li dóna una mirada única que uneix la vocació assistencial amb l’eficiència en la gestió. Com a candidata a tresorera, el seu objectiu és aportar transparència i responsabilitat en l’ús dels recursos del COEC, assegurant que beneficiïn directament a tots els col·legiats.</p>
                 </button>
                 
                 <button class="team-member card" data-slug="clara-gonzalez" data-role="Comptadora" aria-haspopup="dialog">
@@ -270,9 +259,10 @@
                         <span class="member-cta" aria-hidden="true">Més info</span>
                     </div>
                     <div class="member-info">
-                        <h3 class="member-name">Octavi Camps</h3>
+                        <h3 class="member-name">Dr. Octavi Camps</h3>
                         <p class="member-role">Vocal</p>
                     </div>
+                    <p class="member-bio" hidden>El Dr. Octavi Camps és professor agregat de la Universitat de Barcelona i director del Màster de Periodòncia i Periimplantologia. Amb un doctorat, diversos màsters i més de 80 publicacions científiques, és un professional amb una sòlida trajectòria acadèmica i clínica. El seu compromís amb la candidatura és reforçar el vincle entre el COEC i el món universitari, i impulsar una formació continuada de qualitat que situï el col·legi com a referent en innovació i coneixement.</p>
                 </button>
                 
                 <button class="team-member card" data-slug="neus-carrio" data-role="Vocal" aria-haspopup="dialog">
@@ -296,6 +286,7 @@
                         <h3 class="member-name">Dr. Javier Vilarrasa</h3>
                         <p class="member-role">Vocal</p>
                     </div>
+                    <p class="member-bio" hidden>En Javi és doctor en Odontologia i especialista en Periodòncia i Implantologia, amb la prestigiosa Board Europea de Periodòncia. Compagina la seva pràctica privada a Girona i Barcelona amb la docència i la recerca a la UIC. Apassionat per la innovació i amb una visió oberta i participativa, el seu compromís a la candidatura és garantir una formació científica d’excel·lència i fer del COEC un espai proper i representatiu per a tots els professionals.</p>
                 </button>
                 
                 <button class="team-member card" data-slug="claudia-elizabeth-hahn" data-role="Vocal" aria-haspopup="dialog">
@@ -307,6 +298,7 @@
                         <h3 class="member-name">Dra. Claudia Elizabeth Hahn</h3>
                         <p class="member-role">Vocal</p>
                     </div>
+                    <p class="member-bio" hidden>La Dra. Claudia Hahn, especialista en odontopediatria i ortodòncia, combina proximitat amb els pacients amb una visió clara i reivindicativa de la professió. Professora associada a la Universitat de Barcelona i col·laboradora en màsters i postgraus, defensa el paper de la prevenció des de la primera infància. A la candidatura, el seu compromís és impulsar l’odontologia preventiva i reforçar l’odontopediatria al COEC, garantint un futur més sa per a tothom.</p>
                 </button>
 
                 <button class="team-member card" data-slug="miriam-romero" data-role="Vocal" aria-haspopup="dialog">
@@ -357,11 +349,7 @@
             <div class="vision-statement">
                 <div class="vision-cards-grid">
                     <div class="vision-main-card">
-                        <div class="vision-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+                        <!-- vision-icon removed -->
                         <h3 class="vision-title">La nostra visió</h3>
                         <p class="vision-description">Un col·legi que impulsi l'excel·lència professional amb gestió transparent i serveis de qualitat</p>
                     </div>
@@ -398,10 +386,10 @@
                         <div class="commitment-number">01</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Solvència Econòmica</h4>
-                            <p class="commitment-description">Control rigorós de la despesa per assegurar una gestió eficient i responsable. Reducció de les quotes col·legials mitjançant una gestió econòmica òptima.</p>
+                            <p class="commitment-description">Gestió transparent i responsable dels recursos del col·legi per garantir sostenibilitat i reduir les quotes.</p>
                             <ul class="commitment-features">
-                                <li>Estudi per crear un pla de pensions</li>
-                                <li>Augment d'ingressos oferint espais</li>
+                                <li>Estudiar la viabilitat de crear un pla de pensions per als col·legiats.</li>
+                                <li>Augmentar els ingressos del col·legi oferint els nostres espais a altres sectors.</li>
                             </ul>
                         </div>
                     </div>
@@ -410,10 +398,10 @@
                         <div class="commitment-number">02</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Eficiència Administrativa</h4>
-                            <p class="commitment-description">Ampliar i millorar l'Oficina Virtual d'Atenció al Col·legiat (OVAC). Potenciar la digitalització dels processos administratius.</p>
+                            <p class="commitment-description">Millorar els processos administratius i la relació amb els col·legiats mitjançant digitalització i modernització.</p>
                             <ul class="commitment-features">
-                                <li>Actualització dels estatuts del col·legi</li>
-                                <li>Millora de l'atenció presencial i telemàtica</li>
+                                <li>Ampliar i millorar l’Oficina Virtual d’Atenció al Col·legiat (OVAC) i l’atenció presencial.</li>
+                                <li>Monitoritzar la qualitat dels serveis i millorar la comunicació amb els col·legiats.</li>
                             </ul>
                         </div>
                     </div>
@@ -422,10 +410,10 @@
                         <div class="commitment-number">03</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Formació Contínua</h4>
-                            <p class="commitment-description">Adaptar la formació a les noves tecnologies i a la realitat laboral i personal dels col·legiats.</p>
+                            <p class="commitment-description">Garantir una formació pròpia del COEC de qualitat, flexible i adaptada a les noves tecnologies i necessitats dels col·legiats.</p>
                             <ul class="commitment-features">
-                                <li>Plataforma de e-learning amb continguts d’alta qualitat</li>
-                                <li>Programes adaptats a cada necessitat</li>
+                                <li>Dijous COEC: sessions combinant ciència, debat, casos clínics complexos i innovació.</li>
+                                <li>Plataforma de e-learning amb continguts útils i col·laboració amb societats científiques.</li>
                             </ul>
                         </div>
                     </div>
@@ -434,10 +422,10 @@
                         <div class="commitment-number">04</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Relacions Institucionals</h4>
-                            <p class="commitment-description">Participar activament en fòrums de salut per influir en les polítiques que afecten la professió.</p>
+                            <p class="commitment-description">Fortalir el paper del COEC en el sector sanitari i promoure la col·laboració entre professionals.</p>
                             <ul class="commitment-features">
-                                <li>Sinergies amb entitats del sector</li>
-                                <li>Espai de la professió odontoestomatològica catalana</li>
+                                <li>Participar en fòrums de salut i establir sinergies amb altres entitats odontològiques.</li>
+                                <li>Potenciar la clínica solidària COEC per millorar la seva eficàcia i ocupabilitat.</li>
                             </ul>
                         </div>
                     </div>
@@ -458,10 +446,10 @@
                         <div class="commitment-number">06</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Ètica Professional</h4>
-                            <p class="commitment-description">Regular la publicitat sanitària per garantir que sigui ètica i respectuosa. Lluita contra l'intrusisme professional.</p>
+                            <p class="commitment-description">Assegurar que la pràctica odontològica i la seva comunicació siguin ètiques i responsables.</p>
                             <ul class="commitment-features">
-                                <li>Protecció de la professió</li>
-                                <li>Seguretat dels pacients</li>
+                                <li>Regular la publicitat sanitària garantint respecte i ètica professional.</li>
+                                <li>Combatre l’intrusisme per protegir la professió i la seguretat dels pacients.</li>
                             </ul>
                         </div>
                     </div>
@@ -470,10 +458,10 @@
                         <div class="commitment-number">07</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Defensa de la Professió</h4>
-                            <p class="commitment-description">Reivindicar el reconeixement dels odontoestomatòlegs com a facultatius de ple dret.</p>
+                            <p class="commitment-description">Reforçar el reconeixement i la posició dels odontoestomatòlegs dins del sistema sanitari i la societat.</p>
                             <ul class="commitment-features">
-                                <li>Reconeixement com a professió de risc</li>
-                                <li>Digitalització de clíniques dentals</li>
+                                <li>Crear un Observatori de tendències i recolzar les societats científiques en la sol·licitud d’especialitats.</li>
+                                <li>Digitalitzar clíniques, millorar la comunicació entre professionals i oferir recursos per al desenvolupament professional.</li>
                             </ul>
                         </div>
                     </div>
@@ -481,11 +469,11 @@
                     <div class="commitment-card">
                         <div class="commitment-number">08</div>
                         <div class="commitment-content">
-                            <h4 class="commitment-title">Millora de la Imatge</h4>
-                            <p class="commitment-description">Posicionar el col·legi com el referent en el camp de l'odontoestomatologia.</p>
+                            <h4 class="commitment-title">Millora de la Imatge del Col·legi</h4>
+                            <p class="commitment-description">Posicionar el COEC com a referent en odontologia i augmentar la confiança de la societat en els col·legiats.</p>
                             <ul class="commitment-features">
-                                <li>Augmentar la credibilitat</li>
-                                <li>Dentista com a referent en salut</li>
+                                <li>Promoure el dentista com a referent en salut i campanyes divulgatives.</li>
+                                <li>Llançar iniciatives de comunicació amb organismes públics de salut.</li>
                             </ul>
                         </div>
                     </div>
@@ -494,10 +482,10 @@
                         <div class="commitment-number">09</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Recolzament als odontòlegs de la sanitat pública</h4>
-                            <p class="commitment-description">Eliminar la discriminació salarial i aconseguir l’equiparació dels odontòlegs amb la resta de facultatius, garantint condicions laborals justes i dignes al sistema públic.</p>
+                            <p class="commitment-description">Garantir condicions laborals justes i dignes, equiparant-los amb la resta de facultatius.</p>
                             <ul class="commitment-features">
-                                <li>Revisió dels complements retributius i reconeixement de la carrera professional</li>
-                                <li>Optimització de la càrrega assistencial i acompanyament d’un TCAI en tots els tractaments</li>
+                                <li>Revisió de complements retributius, carrera professional i reducció de la ratio pacient/odontòleg.</li>
+                                <li>Acompanyament amb TCAI, reducció d’objectius quantitatius i compliment de les promeses de l’ICS.</li>
                             </ul>
                         </div>
                     </div>
@@ -506,10 +494,10 @@
                         <div class="commitment-number">10</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Apropar el COEC als col·legiats</h4>
-                            <p class="commitment-description">Escoltar i donar veu als col·legiats mitjançant mecanismes de participació que permetin construir un col·legi més proper i obert a tothom.</p>
+                            <p class="commitment-description">Escoltar i implicar els col·legiats per construir un col·legi obert, modern i participatiu.</p>
                             <ul class="commitment-features">
-                                <li>Enquestes periòdiques sobre temes rellevants</li>
-                                <li>Fòrums de debat i formació continuada oberts als col·legiats</li>
+                                <li>Enquestes periòdiques i fòrums de debat per recollir inquietuds.</li>
+                                <li>Potenciar biblioteca digital, premis COEC i fons d’innovació tecnològica.</li>
                             </ul>
                         </div>
                     </div>
@@ -517,11 +505,11 @@
                     <div class="commitment-card">
                         <div class="commitment-number">11</div>
                         <div class="commitment-content">
-                            <h4 class="commitment-title">Acompanyament a nous dentistes</h4>
-                            <p class="commitment-description">Crear un sistema de suport que faciliti la incorporació dels nous col·legiats i els ajudi en els primers passos dins de la professió.</p>
+                            <h4 class="commitment-title">Acompanyament a Nous Dentistes</h4>
+                            <p class="commitment-description">Facilitar la incorporació dels nous professionals a la professió i al col·legi.</p>
                             <ul class="commitment-features">
-                                <li>Servei de mentoria per part de col·legiats amb experiència</li>
-                                <li>Formació específica de benvinguda a la professió</li>
+                                <li>Mentoria, residències clíniques i formació específica de benvinguda.</li>
+                                <li>Espais de networking, pitch nights i incubadora de startups COEC.</li>
                             </ul>
                         </div>
                     </div>
@@ -530,10 +518,10 @@
                         <div class="commitment-number">12</div>
                         <div class="commitment-content">
                             <h4 class="commitment-title">Seus provincials</h4>
-                            <p class="commitment-description">Impulsar la descentralització del col·legi mitjançant la creació i potenciació de seus provincials que permetin més proximitat i accessibilitat.</p>
+                            <p class="commitment-description">Descentralitzar el col·legi per apropar-lo als col·legiats i fomentar la participació local.</p>
                             <ul class="commitment-features">
-                                <li>Facilitar l’accés als serveis del COEC a tot el territori</li>
-                                <li>Assegurar representació equitativa a les diferents províncies</li>
+                                <li>Esdeveniments científics i socials en cada seu i autonomia financera proporcional.</li>
+                                <li>Promoure la participació activa de les juntes provincials en la gestió i les comissions del COEC.</li>
                             </ul>
                         </div>
                     </div>
@@ -585,11 +573,6 @@
             </div>
         </div>
     </section>
-
-    <!-- CTA Flotante -->
-    <div class="floating-cta">
-        <button class="btn-primary">Dona'ns suport</button>
-    </div>
 
     <script type="module" src="./src/main.js"></script>
 </body>

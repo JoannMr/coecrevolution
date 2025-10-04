@@ -1,0 +1,22 @@
+// Enhanced Float Animation (override)
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+// Focus styles for accessibility
+// -----------------------------------------------------------------------------
+*:focus {
+  outline: 2px solid var(--accent-neon-green);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid var(--accent-neon-green);
+  outline-offset: 2px;
+}
