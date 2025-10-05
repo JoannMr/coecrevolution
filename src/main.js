@@ -360,6 +360,8 @@ function initNavigation() {
 }
 
 function initHeaderEffects() {
+  // Header effects disabled - header is now static and only visible at top
+  /*
   const header = document.querySelector('.header');
   let lastScrollY = window.scrollY;
   let ticking = false;
@@ -387,14 +389,17 @@ function initHeaderEffects() {
     lastScrollY = currentScrollY;
     ticking = false;
   }
+  */
 
-  // Throttled scroll event for better performance
+  // Throttled scroll event for better performance - DISABLED
+  /*
   window.addEventListener('scroll', () => {
     if (!ticking) {
       requestAnimationFrame(updateHeader);
       ticking = true;
     }
   });
+  */
 }
 
 // Update active navigation link based on scroll position
