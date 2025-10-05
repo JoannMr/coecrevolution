@@ -1,0 +1,283 @@
+// =============================================================================
+// FOOTER STYLES - COEC REVOLUTION
+// =============================================================================
+
+.footer {
+  background: linear-gradient(135deg, $primary-dark-teal 0%, darken($primary-dark-teal, 10%) 100%);
+  color: $pure-white;
+  padding: $space-3xl 0 $space-xl 0;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, $accent-neon-green 50%, transparent 100%);
+  }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+}
+
+// Social Media Section - Top
+.footer-social-top {
+  text-align: center;
+  margin-bottom: $space-3xl;
+  
+  .footer-title {
+    font-family: $font-heading;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: $weight-bold;
+    color: $pure-white;
+    margin-bottom: $space-xl;
+    letter-spacing: -0.02em;
+    
+    background: $accent-neon-green;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $space-xl;
+    flex-wrap: wrap;
+  }
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-md $space-lg;
+    background: rgba($pure-white, 0.1);
+    border: 1px solid rgba($accent-neon-green, 0.3);
+    border-radius: $radius-round;
+    color: $pure-white;
+    text-decoration: none;
+    font-family: $font-body;
+    font-weight: $weight-medium;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    
+    &:hover {
+      background: rgba($accent-neon-green, 0.1);
+      border-color: $accent-neon-green;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($accent-neon-green, 0.2);
+    }
+    
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover .social-icon {
+      transform: scale(1.1);
+    }
+    
+    .social-text {
+      white-space: nowrap;
+    }
+  }
+  
+  .email-link {
+    .social-text {
+      font-weight: $weight-semibold;
+    }
+  }
+}
+
+// Footer Content
+.footer-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: $space-xl;
+  padding-top: $space-xl;
+  border-top: 1px solid rgba($accent-neon-green, 0.2);
+}
+
+// Brand Section
+.footer-brand {
+  .footer-logo-image {
+    height: 50px;
+    width: auto;
+    transition: filter 0.3s ease;
+    
+    &:hover {
+      filter: drop-shadow(0 0 10px rgba($accent-neon-green, 0.5));
+    }
+  }
+}
+
+// Legal Links
+.footer-legal {
+  .legal-nav {
+    display: flex;
+    gap: $space-lg;
+    align-items: center;
+  }
+  
+  .legal-link {
+    color: rgba($pure-white, 0.8);
+    text-decoration: none;
+    font-family: $font-body;
+    font-size: 0.9rem;
+    font-weight: $weight-regular;
+    padding: $space-sm $space-md;
+    border-radius: $radius-soft;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: $accent-neon-green;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    &:hover {
+      color: $pure-white;
+      background: rgba($accent-neon-green, 0.1);
+      
+      &::after {
+        width: 80%;
+      }
+    }
+  }
+}
+
+// Footer Info
+.footer-info {
+  text-align: right;
+  
+  .footer-tagline {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    color: rgba($pure-white, 0.7);
+    margin-bottom: $space-sm;
+    font-style: italic;
+  }
+  
+  .footer-copyright {
+    font-family: $font-body;
+    font-size: 0.8rem;
+    color: rgba($pure-white, 0.6);
+    margin: 0;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: $space-lg;
+  }
+  
+  .footer-info {
+    text-align: center;
+  }
+  
+  .footer-legal .legal-nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: $space-2xl 0 $space-lg 0;
+  }
+  
+  .footer-container {
+    padding: 0 $space-md;
+  }
+  
+  .footer-social-top {
+    margin-bottom: $space-2xl;
+    
+    .footer-title {
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
+      margin-bottom: $space-lg;
+    }
+    
+    .social-links {
+      gap: $space-md;
+    }
+    
+    .social-link {
+      padding: $space-sm $space-md;
+      font-size: 0.9rem;
+      
+      .social-icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+  
+  .footer-content {
+    gap: $space-md;
+    padding-top: $space-lg;
+  }
+  
+  .footer-brand .footer-logo-image {
+    height: 50px;
+  }
+  
+  .footer-legal .legal-nav {
+    flex-direction: column;
+    gap: $space-sm;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-social-top {
+    .social-links {
+      flex-direction: column;
+      gap: $space-sm;
+      align-items: center;
+    }
+    
+    .social-link {
+      width: 100%;
+      max-width: 280px;
+      justify-content: flex-start;
+      align-items: center;
+      
+      .social-icon {
+        flex-shrink: 0;
+      }
+      
+      .social-text {
+        flex: 1;
+        text-align: left;
+      }
+    }
+  }
+  
+  .footer-brand .footer-logo-image {
+    height: 40px;
+  }
+  
+  .footer-legal .legal-link {
+    font-size: 0.85rem;
+    padding: $space-xs $space-sm;
+  }
+}

@@ -4,6 +4,7 @@
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SplitType from 'split-type';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -12,7 +13,45 @@ gsap.registerPlugin(ScrollTrigger);
 // INITIALIZATION
 // =============================================================================
 
+// Ensure page always starts from top on load/reload
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+// Function to fix hero height and ensure proper positioning
+function fixHeroPositioning() {
+  const hero = document.querySelector('.hero');
+  const header = document.querySelector('.header');
+  
+  if (hero && header) {
+    const headerHeight = header.offsetHeight;
+    // Set hero height to exactly 100vh minus any potential browser chrome issues
+    hero.style.height = '100vh';
+    // Ensure the hero content starts right after the header
+    hero.style.paddingTop = `${headerHeight}px`;
+    // Force immediate scroll to top
+    window.scrollTo(0, 0);
+    
+    // Additional check after a brief delay to ensure positioning
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      // Ensure the hero is visible from the very top
+      if (window.scrollY > 0) {
+        window.scrollTo(0, 0);
+      }
+    }, 50);
+  }
+}
+
+// Force scroll to top on page load
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Fix hero positioning first
+  fixHeroPositioning();
+  
   initAnimations();
   initNavigation();
   initMobileMenu();
@@ -21,13 +60,44 @@ document.addEventListener('DOMContentLoaded', () => {
   // loadTeamBiosFromMarkdown(); // No longer needed: bios are now embedded in HTML
 });
 
+// Additional safety measure - ensure scroll position after all resources load
+window.addEventListener('load', () => {
+  fixHeroPositioning();
+});
+
 // =============================================================================
 // ANIMATIONS
 // =============================================================================
 
+// Initialize SplitType text animations
+function initSplitTypeAnimations() {
+  // Initialize SplitType for all elements with animate attribute
+  const typeSplit = new SplitType('[animate]', {
+    types: 'lines, words, chars',
+    tagName: 'span'
+  });
+
+  // Create timeline for split text animations with proper timing
+  const splitTimeline = gsap.timeline({ delay: 0.8 }); // Delay to coordinate with background animations
+
+  // Animate lines with staggered effect
+  splitTimeline.from('[animate] .line', {
+    y: '100%',
+    opacity: 0,
+    duration: 1,
+    ease: 'power1.out',
+    stagger: 0.2
+  });
+
+  return splitTimeline;
+}
+
 function initAnimations() {
+  // Initialize SplitType animations first
+  initSplitTypeAnimations();
+  
   // Hero animations
-  const heroTimeline = gsap.timeline();
+  const heroTimeline = gsap.timeline(); // No delay needed, SplitType has its own timing
   
   // Background elements
   heroTimeline
@@ -43,26 +113,15 @@ function initAnimations() {
       duration: 1.5,
       ease: 'power2.out'
     }, '-=1')
-    // Content elements
+    // Content elements (badge only, text handled by SplitType)
     .from('.hero-badge', {
       y: 20,
       opacity: 0,
       duration: 0.8,
       ease: 'power3.out'
     }, '-=1.2')
-    .from('.hero-title', {
-      duration: 1,
-      y: 50,
-      opacity: 0,
-      ease: 'power3.out'
-    }, '-=0.6')
-    .from('.hero-description', {
-      duration: 0.8,
-      y: 30,
-      opacity: 0,
-      ease: 'power3.out'
-    }, '-=0.7')
-    // Stats animation
+    // Note: hero-title and hero-description animations are now handled by SplitType
+    // Stats animation (keeping the original stats animation for non-text elements)
     .from('.hero-stats .stat-item', {
       y: 20,
       opacity: 0,
@@ -70,6 +129,7 @@ function initAnimations() {
       stagger: 0.15,
       ease: 'power3.out'
     }, '-=0.5')
+    // Visual elements continue as before
     .from('.hero-actions .btn-primary', {
       duration: 0.6,
       y: 20,
@@ -390,26 +450,42 @@ function initMobileMenu() {
   
   if (!mobileToggle || !mobileOverlay) return;
   
+  // Store scroll position for body lock
+  let scrollPosition = 0;
+  
   // Open mobile menu
   function openMobileMenu() {
+    // Store current scroll position
+    scrollPosition = window.pageYOffset;
+    
+    // Lock body scroll while preserving position
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+    
     mobileOverlay.classList.add('active');
     mobileToggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
     
     // Animate menu items
-    gsap.from('.mobile-nav-link', {
-      duration: 0.6,
+    gsap.fromTo('.mobile-nav-link', {
       y: 30,
-      opacity: 0,
+      opacity: 0
+    }, {
+      duration: 0.6,
+      y: 0,
+      opacity: 1,
       stagger: 0.1,
       ease: 'power3.out',
       delay: 0.2
     });
     
-    gsap.from('.mobile-nav-actions button, .mobile-nav-actions a', {
-      duration: 0.5,
+    gsap.fromTo('.mobile-nav-actions button, .mobile-nav-actions a', {
       y: 20,
-      opacity: 0,
+      opacity: 0
+    }, {
+      duration: 0.5,
+      y: 0,
+      opacity: 1,
       stagger: 0.1,
       ease: 'power3.out',
       delay: 0.4
@@ -420,7 +496,16 @@ function initMobileMenu() {
   function closeMobileMenu() {
     mobileOverlay.classList.remove('active');
     mobileToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    
+    // Restore body scroll and position
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
+    
+    // Clear GSAP styles to prevent conflicts
+    gsap.set('.mobile-nav-link', { clearProps: 'all' });
+    gsap.set('.mobile-nav-actions button, .mobile-nav-actions a', { clearProps: 'all' });
   }
   
   // Event listeners
@@ -471,6 +556,10 @@ window.closeMobileMenu = () => {
       mobileToggle.setAttribute('aria-expanded', 'false');
     }
     document.body.style.overflow = '';
+    
+    // Clear GSAP styles to prevent conflicts
+    gsap.set('.mobile-nav-link', { clearProps: 'all' });
+    gsap.set('.mobile-nav-actions button, .mobile-nav-actions a', { clearProps: 'all' });
   }
 };
 
@@ -504,75 +593,7 @@ function createIntersectionObserver(callback, options = {}) {
   return new IntersectionObserver(callback, observerOptions);
 }
 
-// =============================================================================
-// FORM HANDLING (for future contact forms)
-// =============================================================================
 
-function initFormHandling() {
-  const forms = document.querySelectorAll('form');
-  
-  forms.forEach(form => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const formData = new FormData(form);
-      const submitButton = form.querySelector('button[type="submit"]');
-      
-      // Disable submit button
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = 'Enviant...';
-      }
-      
-      try {
-        // Here you would implement the actual form submission
-        // For now, just simulate a delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        // Show success message
-        showNotification('Missatge enviat correctament!', 'success');
-        form.reset();
-        
-      } catch (error) {
-        // Show error message
-        showNotification('Error en enviar el missatge. Torna-ho a intentar.', 'error');
-      } finally {
-        // Re-enable submit button
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent = 'Enviar';
-        }
-      }
-    });
-  });
-}
-
-// Simple notification system
-function showNotification(message, type = 'info') {
-  const notification = document.createElement('div');
-  notification.className = `notification notification--${type}`;
-  notification.textContent = message;
-  
-  document.body.appendChild(notification);
-  
-  // Animate in
-  gsap.fromTo(notification, 
-    { opacity: 0, y: -50 },
-    { opacity: 1, y: 0, duration: 0.3 }
-  );
-  
-  // Remove after 3 seconds
-  setTimeout(() => {
-    gsap.to(notification, {
-      opacity: 0,
-      y: -50,
-      duration: 0.3,
-      onComplete: () => {
-        notification.remove();
-      }
-    });
-  }, 3000);
-}
 
 // =============================================================================
 // EXPORT FOR POTENTIAL MODULE USAGE
@@ -584,8 +605,7 @@ export {
   initHeaderEffects,
   initMobileMenu,
   debounce,
-  createIntersectionObserver,
-  showNotification
+  createIntersectionObserver
 };
 
 // =============================================================================

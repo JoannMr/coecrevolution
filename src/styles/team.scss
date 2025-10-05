@@ -1,7 +1,7 @@
 // Team Section
 .team-section {
   padding: 0 0 80px 0;
-  background: linear-gradient(135deg, var(--pure-white) 0%, #F8FFFE 100%);
+  background: #F8FFFE;
   position: relative;
   overflow: hidden;
   
@@ -57,7 +57,7 @@
   }
   
   .team-member {
-    background: var(--pure-white);
+    background: #F8F9FA;
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -74,6 +74,11 @@
       box-shadow: var(--elevation-1);
     }
     
+    @media (max-width: 688px) and (min-width: 500px) {
+      width: 60%;
+      margin: 0 auto;
+    }
+    
     .member-image {
       width: 100%;
       height: 350px;
@@ -82,6 +87,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+
       
       img {
         width: 100%; 
@@ -93,6 +100,7 @@
       
       &:hover img {
         transform: scale(0.9);
+        border-radius: 16px;
       }
     }
     
@@ -110,13 +118,29 @@
 
     .member-info {
       padding: 25px;
+      text-align: center;
       
       .member-name {
         font-family: var(--font-heading);
         font-weight: 600;
         font-size: 22px;
         color: var(--primary-dark-teal);
-        margin-bottom: 8px;
+        margin-bottom: 10px;
+        line-height: 1.3;
+        
+        // Ensure consistent height for names in multi-column layouts
+        @media (max-width: 1200px) and (min-width: 688px) {
+          min-height: 2.50em; // Equivalent to 2 lines at line-height 1.3
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        // For single column layout, remove the min-height constraint
+        @media (max-width: 599px) {
+          min-height: auto;
+          display: block;
+        }
       }
       
       .member-role {

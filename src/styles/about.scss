@@ -92,28 +92,38 @@
   // Vision Statement - Modern Card Design
   .vision-statement {
     margin-bottom: 80px;
+    background: #F8FFFE;
     
     .vision-cards-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       align-items: stretch;
       grid-auto-rows: 1fr;
-      
+      max-width: 1200px;
+      margin: 0 auto;
       @media (max-width: 1024px) {
         grid-template-columns: 1fr 1fr;
         gap: 20px;
+        
+        .vision-main-card {
+          grid-column: 1 / -1;
+        }
       }
       
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
         gap: 16px;
+        
+        .vision-main-card {
+          grid-column: 1 / -1;
+        }
       }
       
       .vision-main-card {
         background: linear-gradient(135deg, var(--primary-dark-teal) 0%, #1a4d4d 100%);
         border-radius: 20px;
-        padding: 40px 32px;
+        padding: 40px 32px 48px;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -123,6 +133,7 @@
         flex-direction: column;
         justify-content: center;
         min-height: 280px;
+        grid-column: 1 / -1;
         
         &::before {
           content: '';
@@ -145,12 +156,10 @@
         
         .vision-title {
           font-family: var(--font-heading);
-          font-weight: 700;
-          font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+          font-weight: 600;
+          font-size: clamp(2rem, 4vw, 3rem);
           color: var(--accent-neon-green);
           margin-bottom: 16px;
-          position: relative;
-          z-index: 1;
         }
         
         .vision-description {
@@ -162,8 +171,19 @@
           z-index: 1;
         }
         
+        .vision-features {
+          margin-top: 33px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          
+          @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+          }
+        }
+        
         @media (max-width: 768px) {
-          padding: 32px 24px;
+          padding: 40px 24px;
           
           /* vision-icon responsive removed */
         }
@@ -181,8 +201,20 @@
         flex-direction: column;
         justify-content: flex-start;
         height: 100%;
-        min-height: 280px;
+        min-height: 240px;
         
+        @media (max-width: 768px) {
+          min-height: 150px;
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        @media (max-width: 520px) {
+          width: 100%;
+          margin: 0;
+        }
+
+
         &:hover {
           transform: translateY(-2px);
           border-color: var(--accent-neon-green);
@@ -237,6 +269,7 @@
           
           .feature-title {
             font-size: 16px;
+            margin-bottom: 12px;
           }
         }
       }
@@ -246,6 +279,7 @@
   // Commitments Section
   .commitments-section {
     margin-bottom: 110px;
+    background: #F8FFFE;
     
     .section-header {
       text-align: center;
