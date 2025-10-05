@@ -1,0 +1,25 @@
+// Entry point for modularized styles
+// Variables (globally injected via Vite, kept here for clarity if direct import is needed)
+@import './variables.scss';
+
+// Base and globals
+@import './base.scss';
+@import './utilities.scss';
+
+// Components
+@import './buttons.scss';
+@import './cards.scss';
+
+// Layout/Sections
+@import './header.scss';
+@import './hero.scss';
+@import './process.scss';
+@import './team.scss';
+@import './about.scss';
+@import './footer.scss';
+
+// Contact page styles
+// @import './contact.scss';
+
+// Final global overrides
+@import './final-globals.scss';

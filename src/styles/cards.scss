@@ -1,0 +1,45 @@
+// Card Components extracted from main.scss
+
+.card, .tile {
+  background: var(--primary-dark-teal);
+  border: 0;
+  border-radius: var(--radius-none);
+  position: relative;
+  transition: all 0.2s ease;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-neon-green);
+  }
+  
+  &:hover {
+    box-shadow: var(--elevation-1);
+  }
+  
+  &:active {
+    transform: scale(0.97);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--accent-neon-green);
+  }
+  
+  .card-heading {
+    color: var(--accent-neon-green);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  .card-subcopy {
+    color: var(--neutral-grey);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}
