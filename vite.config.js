@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
   root: '.',
@@ -8,6 +9,12 @@ export default defineConfig({
     sourcemap: true,
     minify: 'terser',
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        'avis-legal': resolve(__dirname, 'avis-legal.html'),
+        'privacitat': resolve(__dirname, 'privacitat.html'),
+        'cookies': resolve(__dirname, 'cookies.html')
+      },
       output: {
         manualChunks: {
           vendor: ['gsap']

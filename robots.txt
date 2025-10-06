@@ -1,0 +1,57 @@
+# Robots.txt para COEC Revolution
+# https://coecrevolution.com/robots.txt
+
+# Permitir acceso a todos los bots
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://coecrevolution.com/sitemap.xml
+
+# Bloquear archivos de desarrollo y configuración
+Disallow: /src/styles/
+Disallow: /src/main.js
+Disallow: *.scss
+Disallow: *.map
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /vite.config.js
+Disallow: /.git/
+Disallow: /.gitignore
+Disallow: /README.md
+Disallow: /textos.md
+
+# Permitir acceso a imágenes y recursos públicos
+Allow: /src/img/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.ico
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.svg
+Allow: /*.webp
+
+# Configuración específica para Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Configuración específica para Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Bloquear bots maliciosos conocidos
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Crawl delay general (1 segundo)
+Crawl-delay: 1
