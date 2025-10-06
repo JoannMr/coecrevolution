@@ -1,0 +1,73 @@
+// Button Components extracted from main.scss
+
+.btn-primary {
+  background: var(--accent-neon-green);
+  color: var(--primary-dark-teal);
+  border: none;
+  border-radius: var(--radius-soft);
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-decoration: none;
+  display: inline-block;
+  
+  &:hover {
+    background: #E0FA53;
+    transform: scale(0.97);
+  }
+  
+  &:active {
+    background: #C6E03A;
+  }
+  
+  &:focus {
+    outline: 2px solid var(--accent-neon-green);
+    outline-offset: 2px;
+  }
+  
+  &:disabled {
+    background: var(--surface-light-grey);
+    color: var(--neutral-grey);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-neon-green);
+  border: 2px solid var(--accent-neon-green);
+  border-radius: var(--radius-soft);
+  padding: 10px 22px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  
+  &:hover {
+    background: var(--accent-neon-green);
+    color: var(--primary-dark-teal);
+    transform: scale(0.97);
+  }
+  
+  &:active {
+    background: #C6E03A;
+  }
+  
+  &:focus {
+    outline: 2px solid var(--accent-neon-green);
+  }
+  
+  &:disabled {
+    border-color: var(--surface-light-grey);
+    color: var(--neutral-grey);
+    cursor: not-allowed;
+  }
+}
