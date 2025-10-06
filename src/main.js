@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initHeaderEffects();
   initTeamModal();
+  initCommitmentsModal();
+  initRowHeightEqualization();
   // loadTeamBiosFromMarkdown(); // No longer needed: bios are now embedded in HTML
 });
 
@@ -717,6 +719,54 @@ function initTeamModal() {
   });
 }
 
+// Function to equalize heights within each row only
+function equalizeRowHeights() {
+  const grid = document.querySelector('.commitments-grid');
+  if (!grid) return;
+  
+  const cards = Array.from(grid.querySelectorAll('.commitment-card'));
+  if (cards.length === 0) return;
+  
+  // Reset heights first
+  cards.forEach(card => {
+    card.style.height = 'auto';
+  });
+  
+  // Only apply row-based height equalization on desktop (2 columns)
+  if (window.innerWidth >= 768) {
+    // Group cards by rows (2 cards per row)
+    const rows = [];
+    for (let i = 0; i < cards.length; i += 2) {
+      const row = cards.slice(i, i + 2);
+      if (row.length > 0) {
+        rows.push(row);
+      }
+    }
+    
+    // Equalize heights within each row
+    rows.forEach(row => {
+      if (row.length > 1) {
+        const maxHeight = Math.max(...row.map(card => card.offsetHeight));
+        row.forEach(card => {
+          card.style.height = `${maxHeight}px`;
+        });
+      }
+    });
+  }
+}
+
+// Initialize row height equalization
+function initRowHeightEqualization() {
+  equalizeRowHeights();
+  
+  // Re-equalize on window resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(equalizeRowHeights, 150);
+  });
+}
+
 // In-memory maps for bios
 const biosBySlug = new Map();
 const biosByName = new Map();
@@ -786,4 +836,97 @@ function slugify(str) {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)+/g, '');
+}
+
+// Commitments Modal functionality
+function initCommitmentsModal() {
+  const modalOverlay = document.getElementById('commitmentModalOverlay');
+  const modal = document.querySelector('.commitment-modal');
+  const closeBtn = document.getElementById('commitmentModalClose');
+  const commitmentCards = document.querySelectorAll('.commitment-card');
+
+  if (!modal || !modalOverlay || !closeBtn) {
+    console.warn('Commitment modal elements not found');
+    return;
+  }
+
+  // Modal elements
+  const modalNumber = document.getElementById('commitmentModalNumber');
+  const modalTitle = document.getElementById('commitmentModalTitle');
+  const modalDescription = document.getElementById('commitmentModalDescription');
+  const modalContent = document.getElementById('commitmentModalContent');
+
+  // Function to open modal
+  function openModal(commitmentData) {
+    if (modalNumber) modalNumber.textContent = commitmentData.number;
+    if (modalTitle) modalTitle.textContent = commitmentData.title;
+    if (modalDescription) modalDescription.textContent = commitmentData.description;
+    if (modalContent) modalContent.innerHTML = commitmentData.features;
+
+    modalOverlay.classList.add('active');
+    modalOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    
+    // Focus management
+    closeBtn.focus();
+  }
+
+  // Function to close modal
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    modalOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Close modal events
+  closeBtn.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      closeModal();
+    }
+  });
+
+  // Escape key to close modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Add click events to commitment cards
+  commitmentCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const number = card.querySelector('.commitment-number')?.textContent || '';
+      const title = card.querySelector('.commitment-title')?.textContent || '';
+      const description = card.querySelector('.commitment-description')?.textContent || '';
+      const featuresList = card.querySelector('.commitment-features');
+      
+      let features = '';
+      if (featuresList) {
+        const items = featuresList.querySelectorAll('li');
+        if (items.length > 0) {
+          features = '<ul class="commitment-features-modal">';
+          items.forEach(item => {
+            features += `<li>${item.textContent}</li>`;
+          });
+          features += '</ul>';
+        }
+      }
+
+      openModal({
+        number,
+        title,
+        description,
+        features
+      });
+    });
+
+    // Keyboard accessibility
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
 }
