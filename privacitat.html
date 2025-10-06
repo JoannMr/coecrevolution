@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacitat - COEC Revolution</title>
+    <meta name="description" content="Política de privacitat del lloc web de COEC Revolution, candidatura per a la transformació de l'odontologia catalana.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/styles/app.scss">
+    
+    <style>
+        .legal-page {
+            min-height: 100vh;
+            background: var(--background-primary);
+            padding: 2rem 0;
+        }
+        
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 1rem;
+        }
+        
+        .legal-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .legal-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .legal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .legal-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--accent-light-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        .legal-content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .legal-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .legal-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 1.2rem;
+        }
+        
+        .legal-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .legal-content li {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .legal-content strong {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .legal-content table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 650px;
+        }
+        
+        .legal-content th,
+        .legal-content td {
+            border: 1px solid #e0e0e0;
+            padding: 0.8rem;
+            text-align: left;
+            vertical-align: top;
+            word-wrap: break-word;
+        }
+        
+        .legal-content th {
+            background-color: var(--surface-light-grey);
+            font-weight: 600;
+            color: var(--primary-blue);
+            white-space: nowrap;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+        
+        .back-link svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover svg {
+            transform: translateX(-2px);
+        }
+        
+        .highlight-box {
+            background: var(--surface-light-blue);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .legal-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .legal-title {
+                font-size: 2rem;
+            }
+            
+            .table-wrapper {
+                margin: 1rem -1.5rem;
+                border-radius: 0;
+                box-shadow: none;
+                border-top: 1px solid #e0e0e0;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .legal-content table {
+                font-size: 0.75rem;
+                min-width: 550px;
+            }
+            
+            .legal-content th,
+            .legal-content td {
+                padding: 0.5rem 0.4rem;
+                font-size: 0.75rem;
+                line-height: 1.4;
+            }
+            
+            .legal-content th {
+                font-size: 0.7rem;
+                font-weight: 700;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .table-wrapper {
+                margin: 1rem -1.5rem;
+            }
+            
+            .legal-content table {
+                min-width: 500px;
+                font-size: 0.7rem;
+            }
+            
+            .legal-content th,
+            .legal-content td {
+                padding: 0.4rem 0.3rem;
+                font-size: 0.7rem;
+            }
+            
+            .legal-content th {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="legal-page">
+        <div class="legal-container">
+            <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+                Tornar a l'inici
+            </a>
+            
+            <header class="legal-header">
+                <h1 class="legal-title">Política de Privacitat</h1>
+                <p class="legal-subtitle">Com tractem i protegim les teves dades personals</p>
+            </header>
+            
+            <div class="legal-content">
+                <div class="highlight-box">
+                    <p><strong>Resum executiu:</strong> Aquest lloc web recull únicament dades tècniques necessàries per al seu funcionament (adreça IP, dades de navegació). No recollim dades personals identificatives ni utilitzem cookies de seguiment. Complim estrictament amb el RGPD i la LOPDGDD.</p>
+                </div>
+                
+                <h2>1. Responsable del Tractament</h2>
+                <p><strong>Identitat:</strong> COEC Revolution</p>
+                <p><strong>Naturalesa:</strong> Candidatura electoral per al Col·legi Oficial d'Odontòlegs i Estomatòlegs de Catalunya</p>
+                <p><strong>Finalitat:</strong> Difusió d'informació electoral i programàtica</p>
+                <p><strong>Contacte per a qüestions de privacitat:</strong> A través del nostre correu electrònic: <a href="mailto:coecrevolution@gmail.com" style="color: var(--primary-blue); font-weight: 600;">coecrevolution@gmail.com</a></p>
+                
+                <h2>2. Dades que Recollim</h2>
+                
+                <h3>2.1 Dades Tècniques Automàtiques</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipus de Dada</th>
+                                <th>Finalitat</th>
+                                <th>Base Legal</th>
+                                <th>Conservació</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Adreça IP</td>
+                                <td>Funcionament tècnic del lloc web i seguretat</td>
+                                <td>Interès legítim</td>
+                                <td>30 dies</td>
+                            </tr>
+                            <tr>
+                                <td>Dades de navegació</td>
+                                <td>Optimització del rendiment del lloc web</td>
+                                <td>Interès legítim</td>
+                                <td>30 dies</td>
+                            </tr>
+                            <tr>
+                                <td>Informació del navegador</td>
+                                <td>Compatibilitat i funcionament correcte</td>
+                                <td>Interès legítim</td>
+                                <td>30 dies</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>2.2 Dades que NO Recollim</h3>
+                <ul>
+                    <li>Nom, cognoms o altres dades identificatives personals</li>
+                    <li>Adreça de correu electrònic</li>
+                    <li>Número de telèfon</li>
+                    <li>Dades de localització precisa</li>
+                    <li>Dades de xarxes socials</li>
+                    <li>Dades de pagament o financeres</li>
+                </ul>
+                
+                <h2>3. Finalitats del Tractament</h2>
+                <p>Les dades tècniques que recollim s'utilitzen exclusivament per a:</p>
+                <ul>
+                    <li><strong>Funcionament tècnic:</strong> Garantir el correcte funcionament del lloc web</li>
+                    <li><strong>Seguretat:</strong> Protegir el lloc web contra atacs i ús indegut</li>
+                    <li><strong>Optimització:</strong> Millorar el rendiment i l'experiència d'usuari</li>
+                    <li><strong>Compliment legal:</strong> Complir amb les obligacions legals aplicables</li>
+                </ul>
+                
+                <h2>4. Base Legal del Tractament</h2>
+                <p>El tractament de les dades tècniques es basa en el nostre <strong>interès legítim</strong> (article 6.1.f del RGPD) per:</p>
+                <ul>
+                    <li>Garantir el funcionament tècnic del lloc web</li>
+                    <li>Protegir la seguretat dels sistemes informàtics</li>
+                    <li>Proporcionar informació d'interès públic sobre la candidatura electoral</li>
+                </ul>
+                
+                <h2>5. Destinataris de les Dades</h2>
+                <p>Les dades tècniques poden ser compartides amb:</p>
+                <ul>
+                    <li><strong>Proveïdor d'allotjament web:</strong> Per al funcionament tècnic del lloc web</li>
+                    <li><strong>Autoritats competents:</strong> Quan sigui requerit per llei</li>
+                </ul>
+                <p><strong>No compartim dades amb tercers</strong> per a finalitats comercials o de màrqueting.</p>
+                
+                <h2>6. Transferències Internacionals</h2>
+                <p>Algunes dades tècniques poden ser processades per proveïdors de serveis ubicats fora de l'Espai Econòmic Europeu (EEE). En aquests casos, garantim que:</p>
+                <ul>
+                    <li>Les transferències compleixen amb el RGPD</li>
+                    <li>S'apliquen les salvaguardes adequades</li>
+                    <li>Els proveïdors ofereixen garanties de protecció equivalents</li>
+                </ul>
+                
+                <h2>7. Conservació de les Dades</h2>
+                <p>Les dades tècniques es conserven durant:</p>
+                <ul>
+                    <li><strong>Dades de navegació:</strong> Màxim 30 dies</li>
+                    <li><strong>Logs de seguretat:</strong> Màxim 90 dies</li>
+                    <li><strong>Dades d'errors tècnics:</strong> Fins a la resolució del problema</li>
+                </ul>
+                
+                <h2>8. Drets dels Usuaris</h2>
+                <p>Conforme al RGPD i la LOPDGDD, tens els següents drets:</p>
+                
+                <h3>8.1 Drets Principals</h3>
+                <ul>
+                    <li><strong>Accés:</strong> Obtenir informació sobre les dades que tractem</li>
+                    <li><strong>Rectificació:</strong> Corregir dades inexactes</li>
+                    <li><strong>Supressió:</strong> Sol·licitar l'eliminació de les dades</li>
+                    <li><strong>Limitació:</strong> Restringir el tractament en determinats casos</li>
+                    <li><strong>Oposició:</strong> Oposar-se al tractament basat en interès legítim</li>
+                    <li><strong>Portabilitat:</strong> Rebre les dades en format estructurat</li>
+                </ul>
+                
+                <h3>8.2 Com Exercir els Drets</h3>
+                <p>Per exercir aquests drets, pots contactar amb nosaltres a través del nostre correu electrònic: <a href="mailto:coecrevolution@gmail.com" style="color: var(--primary-blue); font-weight: 600;">coecrevolution@gmail.com</a>. Respondrem a la teva sol·licitud en un termini màxim d'un mes.</p>
+                
+                <h3>8.3 Dret de Reclamació</h3>
+                <p>Tens dret a presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (AEPD) si consideres que el tractament de les teves dades vulnera la normativa vigent.</p>
+                
+                <h2>9. Seguretat de les Dades</h2>
+                <p>Implementem mesures tècniques i organitzatives adequades per protegir les dades contra:</p>
+                <ul>
+                    <li>Accés no autoritzat</li>
+                    <li>Alteració, pèrdua o tractament il·lícit</li>
+                    <li>Divulgació no autoritzada</li>
+                </ul>
+                
+                <h2>10. Menors d'Edat</h2>
+                <p>Aquest lloc web no està dirigit específicament a menors de 14 anys. No recollim intencionadament dades personals de menors sense el consentiment dels pares o tutors legals.</p>
+                
+                <h2>11. Cookies i Tecnologies Similars</h2>
+                <p>Per a informació detallada sobre l'ús de cookies, consulta la nostra <a href="/cookies.html" style="color: var(--primary-blue);">Política de Cookies</a>.</p>
+                
+                <h2>12. Modificacions d'aquesta Política</h2>
+                <p>Ens reservem el dret de modificar aquesta política de privacitat per adaptar-la a:</p>
+                <ul>
+                    <li>Canvis en la legislació vigent</li>
+                    <li>Modificacions en els serveis oferits</li>
+                    <li>Millores en les mesures de protecció</li>
+                </ul>
+                <p>Les modificacions seran notificades mitjançant la publicació de la nova versió al lloc web.</p>
+                
+                <h2>13. Contacte</h2>
+                <p>Per a qualsevol qüestió relacionada amb aquesta política de privacitat o l'exercici dels teus drets, pots contactar amb nosaltres a través del nostre correu electrònic: <a href="mailto:coecrevolution@gmail.com" style="color: var(--primary-blue); font-weight: 600;">coecrevolution@gmail.com</a>.</p>
+                
+                <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-secondary);">
+                    <strong>Última actualització:</strong> Gener 2025<br>
+                    <strong>Versió:</strong> 1.0
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
