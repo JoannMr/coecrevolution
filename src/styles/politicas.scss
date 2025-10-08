@@ -1,0 +1,299 @@
+// =============================================================================
+// POLITICAS - Estilos para páginas legales
+// =============================================================================
+// Este archivo contiene todos los estilos para las páginas legales:
+// - Aviso Legal (avis-legal.html)
+// - Política de Cookies (cookies.html)
+// - Política de Privacidad (privacitat.html)
+// =============================================================================
+
+// =============================================================================
+// ESTILOS COMUNES PARA TODAS LAS PÁGINAS LEGALES
+// =============================================================================
+
+.legal-page {
+    min-height: 100vh;
+    background: var(--background-primary);
+    padding: 2rem 0;
+}
+
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.legal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 1rem;
+}
+
+.legal-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.legal-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.legal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+
+    h2 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary-blue);
+        margin: 2rem 0 1rem 0;
+        border-bottom: 2px solid var(--accent-light-blue);
+        padding-bottom: 0.5rem;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 1.5rem 0 0.8rem 0;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-primary);
+        margin-bottom: 1.2rem;
+    }
+
+    ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    strong {
+        color: var(--primary-blue);
+        font-weight: 600;
+    }
+
+    // Estilos para tablas
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        min-width: 600px;
+    }
+
+    th,
+    td {
+        border: 1px solid #e0e0e0;
+        padding: 0.8rem;
+        text-align: left;
+        vertical-align: top;
+        word-wrap: break-word;
+    }
+
+    th {
+        background-color: var(--surface-light-grey);
+        font-weight: 600;
+        color: var(--primary-blue);
+        white-space: nowrap;
+    }
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: var(--accent-blue);
+
+        svg {
+            transform: translateX(-2px);
+        }
+    }
+
+    svg {
+        transition: transform 0.3s ease;
+    }
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+// =============================================================================
+// ESTILOS ESPECÍFICOS PARA POLÍTICA DE PRIVACIDAD
+// =============================================================================
+
+.highlight-box {
+    background: var(--surface-light-blue);
+    border-left: 4px solid var(--primary-blue);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+// Tabla específica para política de privacidad
+.legal-content table {
+    &.privacy-table {
+        min-width: 650px;
+        font-size: 0.95rem;
+
+        th,
+        td {
+            padding: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-weight: 600;
+        }
+    }
+}
+
+// =============================================================================
+// ESTILOS ESPECÍFICOS PARA POLÍTICA DE COOKIES
+// =============================================================================
+
+.cookie-type {
+    background: var(--surface-light-blue);
+    border-left: 4px solid var(--primary-blue);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+
+    &.technical {
+        border-left-color: #28a745;
+        background: #f8fff9;
+    }
+
+    &.analytics {
+        border-left-color: #ffc107;
+        background: #fffef8;
+    }
+
+    &.third-party {
+        border-left-color: #17a2b8;
+        background: #f8feff;
+    }
+}
+
+.cookie-status {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+
+    &.essential {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    &.optional {
+        background: #fff3cd;
+        color: #856404;
+    }
+}
+
+// =============================================================================
+// RESPONSIVE DESIGN - TABLETS Y MÓVILES
+// =============================================================================
+
+@media (max-width: 768px) {
+    .legal-content {
+        padding: 2rem 1.5rem;
+
+        table {
+            font-size: 0.75rem;
+            min-width: 500px;
+
+            &.privacy-table {
+                min-width: 550px;
+            }
+        }
+
+        th,
+        td {
+            padding: 0.5rem 0.4rem;
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+
+        th {
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+    }
+
+    .legal-title {
+        font-size: 2rem;
+    }
+
+    .table-wrapper {
+        margin: 1rem -1.5rem;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-wrapper {
+        margin: 1rem -1.5rem;
+    }
+
+    .legal-content {
+        table {
+            min-width: 450px;
+            font-size: 0.7rem;
+
+            &.privacy-table {
+                min-width: 500px;
+            }
+        }
+
+        th,
+        td {
+            padding: 0.4rem 0.3rem;
+            font-size: 0.7rem;
+        }
+
+        th {
+            font-size: 0.65rem;
+        }
+    }
+}
+

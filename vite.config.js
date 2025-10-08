@@ -13,7 +13,8 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         'avis-legal': resolve(__dirname, 'avis-legal.html'),
         'privacitat': resolve(__dirname, 'privacitat.html'),
-        'cookies': resolve(__dirname, 'cookies.html')
+        'cookies': resolve(__dirname, 'cookies.html'),
+        '404': resolve(__dirname, '404.html')
       },
       output: {
         manualChunks: {
