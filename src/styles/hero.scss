@@ -108,6 +108,14 @@
 			line-height: 1.1;
 			margin-bottom: 24px;
 			color: var(--pure-white);
+			
+			// Ocultar saltos de línea en móviles
+			@media (max-width: 992px) {
+				br {
+					display: none;
+				}
+			}
+			
 			.text-gradient {
 				background: linear-gradient(
 					90deg,
@@ -126,7 +134,6 @@
 			line-height: 1.6;
 			color: #e6e6e5;
 			margin-bottom: 40px;
-			max-width: 540px;
 		}
 
 		.hero-stats {
