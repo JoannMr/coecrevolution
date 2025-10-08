@@ -1,6 +1,7 @@
 // Entry point for modularized styles
 // Variables (globally injected via Vite, kept here for clarity if direct import is needed)
 @import './variables.scss';
+@import './fonts.scss';
 
 // Base and globals
 @import './base.scss';
@@ -18,6 +19,8 @@
 @import './about.scss';
 @import './footer.scss';
 @import './commitments-modal.scss';
+@import './politicas.scss';
+@import './error-page.scss';
 
 // Contact page styles
 // @import './contact.scss';

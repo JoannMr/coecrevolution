@@ -1,5 +1,6 @@
 # Robots.txt para COEC Revolution
 # https://coecrevolution.com/robots.txt
+# Última actualización: Enero 2025
 
 # Permitir acceso a todos los bots
 User-agent: *
@@ -7,6 +8,13 @@ Allow: /
 
 # Sitemap principal
 Sitemap: https://coecrevolution.com/sitemap.xml
+
+# Páginas principales permitidas explícitamente
+Allow: /index.html
+Allow: /404.html
+Allow: /avis-legal.html
+Allow: /privacitat.html
+Allow: /cookies.html
 
 # Bloquear archivos de desarrollo y configuración
 Disallow: /src/styles/
@@ -21,9 +29,12 @@ Disallow: /.git/
 Disallow: /.gitignore
 Disallow: /README.md
 Disallow: /textos.md
+Disallow: /dist/
 
-# Permitir acceso a imágenes y recursos públicos
+# Permitir acceso a recursos públicos y assets
 Allow: /src/img/
+Allow: /src/fonts/
+Allow: /assets/
 Allow: /*.css
 Allow: /*.js
 Allow: /*.ico
@@ -32,6 +43,10 @@ Allow: /*.jpg
 Allow: /*.jpeg
 Allow: /*.svg
 Allow: /*.webp
+Allow: /*.woff
+Allow: /*.woff2
+Allow: /*.ttf
+Allow: /*.eot
 
 # Configuración específica para Google
 User-agent: Googlebot
@@ -43,7 +58,16 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# Bloquear bots maliciosos conocidos
+# Configuración específica para otros buscadores importantes
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Bloquear bots maliciosos y scrapers conocidos
 User-agent: AhrefsBot
 Disallow: /
 
@@ -51,6 +75,15 @@ User-agent: MJ12bot
 Disallow: /
 
 User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MauiBot
+Disallow: /
+
+User-agent: SeznamBot
 Disallow: /
 
 # Crawl delay general (1 segundo)

@@ -7,253 +7,8 @@
     <meta name="description" content="Política de cookies del lloc web de COEC Revolution, candidatura per a la transformació de l'odontologia catalana.">
     <meta name="robots" content="noindex, nofollow">
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    
     <!-- Styles -->
     <link rel="stylesheet" href="./src/styles/app.scss">
-    
-    <style>
-        .legal-page {
-            min-height: 100vh;
-            background: var(--background-primary);
-            padding: 2rem 0;
-        }
-        
-        .legal-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .legal-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-top: 1rem;
-        }
-        
-        .legal-title {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-        
-        .legal-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .legal-content {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 2rem;
-        }
-        
-        .legal-content h2 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid var(--accent-light-blue);
-            padding-bottom: 0.5rem;
-        }
-        
-        .legal-content h2:first-child {
-            margin-top: 0;
-        }
-        
-        .legal-content h3 {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 1.5rem 0 0.8rem 0;
-        }
-        
-        .legal-content p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-primary);
-            margin-bottom: 1.2rem;
-        }
-        
-        .legal-content ul {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .legal-content li {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .legal-content strong {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-        
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .legal-content table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-            min-width: 600px;
-        }
-        
-        .legal-content th,
-        .legal-content td {
-            border: 1px solid #e0e0e0;
-            padding: 0.8rem;
-            text-align: left;
-            vertical-align: top;
-            word-wrap: break-word;
-        }
-        
-        .legal-content th {
-            background-color: var(--surface-light-grey);
-            font-weight: 600;
-            color: var(--primary-blue);
-            white-space: nowrap;
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .back-link:hover {
-            color: var(--accent-blue);
-        }
-        
-        .back-link svg {
-            transition: transform 0.3s ease;
-        }
-        
-        .back-link:hover svg {
-            transform: translateX(-2px);
-        }
-        
-        .cookie-type {
-            background: var(--surface-light-blue);
-            border-left: 4px solid var(--primary-blue);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .cookie-type.technical {
-            border-left-color: #28a745;
-            background: #f8fff9;
-        }
-        
-        .cookie-type.analytics {
-            border-left-color: #ffc107;
-            background: #fffef8;
-        }
-        
-        .cookie-type.third-party {
-            border-left-color: #17a2b8;
-            background: #f8feff;
-        }
-        
-        .cookie-status {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-left: 0.5rem;
-        }
-        
-        .cookie-status.essential {
-            background: #d4edda;
-            color: #155724;
-        }
-        
-        .cookie-status.optional {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        @media (max-width: 768px) {
-            .legal-content {
-                padding: 2rem 1.5rem;
-            }
-            
-            .legal-title {
-                font-size: 2rem;
-            }
-            
-            .table-wrapper {
-                margin: 1rem -1.5rem;
-                border-radius: 0;
-                box-shadow: none;
-                border-top: 1px solid #e0e0e0;
-                border-bottom: 1px solid #e0e0e0;
-            }
-            
-            .legal-content table {
-                font-size: 0.75rem;
-                min-width: 500px;
-            }
-            
-            .legal-content th,
-            .legal-content td {
-                padding: 0.5rem 0.4rem;
-                font-size: 0.75rem;
-                line-height: 1.4;
-            }
-            
-            .legal-content th {
-                font-size: 0.7rem;
-                font-weight: 700;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .table-wrapper {
-                margin: 1rem -1.5rem;
-            }
-            
-            .legal-content table {
-                min-width: 450px;
-                font-size: 0.7rem;
-            }
-            
-            .legal-content th,
-            .legal-content td {
-                padding: 0.4rem 0.3rem;
-                font-size: 0.7rem;
-            }
-            
-            .legal-content th {
-                font-size: 0.65rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="legal-page">
@@ -275,41 +30,22 @@
                 <p>Les cookies són petits fitxers de text que es descarreguen al teu dispositiu quan visites un lloc web. Permeten que el lloc web recordi les teves accions i preferències durant un període de temps, de manera que no hagis de tornar a configurar-les cada vegada que tornis al lloc o naveguis d'una pàgina a una altra.</p>
                 
                 <h2>2. Com Utilitzem les Cookies</h2>
-                <p><strong>COEC Revolution NO utilitza cookies pròpies.</strong> Aquest és un lloc web estàtic que funciona completament sense necessitat de cookies per al seu funcionament bàsic. L'únic servei extern que pot generar cookies és Google Fonts per a l'optimització de la càrrega de fonts tipogràfiques.</p>
+                <p><strong>COEC Revolution NO utilitza cookies pròpies ni de tercers.</strong> Aquest és un lloc web estàtic que funciona completament sense necessitat de cookies per al seu funcionament. Totes les fonts tipogràfiques i recursos estan allotjats localment, eliminant la necessitat de serveis externs.</p>
                 <p><strong>Compromís de privacitat:</strong> No utilitzem cookies per a seguiment, analítica, publicitat o qualsevol forma de perfilat d'usuaris.</p>
                 
                 <h2>3. Tipus de Cookies que Utilitzem</h2>
                 
                 <div class="cookie-type technical">
                     <h3>3.1 Cookies Tècniques <span class="cookie-status essential">Essencials</span></h3>
-                    <p><strong>Actualment, aquest lloc web NO utilitza cookies pròpies.</strong> És un lloc web estàtic que no requereix cookies per al seu funcionament bàsic.</p>
+                    <p><strong>Aquest lloc web NO utilitza cookies pròpies ni de tercers.</strong> És un lloc web estàtic que no requereix cookies per al seu funcionament. Tots els recursos (fonts, imatges, estils) estan allotjats localment.</p>
                 </div>
                 
                 <div class="cookie-type third-party">
                     <h3>3.2 Serveis Externs</h3>
-                    <p>Aquest lloc web utilitza alguns serveis externs que poden generar cookies tècniques:</p>
+                    <p><strong>Aquest lloc web NO utilitza serveis externs</strong> que puguin generar cookies. Tots els recursos necessaris estan integrats localment per garantir la màxima privacitat.</p>
                 </div>
                 
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Servei</th>
-                                <th>Finalitat</th>
-                                <th>Cookies Possibles</th>
-                                <th>Més Informació</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Google Fonts</td>
-                                <td>Carregar fonts tipogràfiques</td>
-                                <td>Possibles cookies tècniques per optimització</td>
-                                <td><a href="https://policies.google.com/privacy" target="_blank" style="color: var(--primary-blue);">Política de Google</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
                 
                 <p><strong>Nota important:</strong> En mode desenvolupament, Vite pot utilitzar cookies de sessió per a la recàrrega automàtica, però aquestes no estan presents en la versió de producció del lloc web.</p>
                 
@@ -324,17 +60,17 @@
                 </ul>
                 
                 <h2>5. Base Legal</h2>
-                <p>Donat que aquest lloc web no utilitza cookies pròpies:</p>
+                <p>Donat que aquest lloc web no utilitza cookies pròpies ni de tercers:</p>
                 <ul>
                     <li><strong>No es requereix consentiment</strong> per a l'ús del lloc web</li>
-                    <li><strong>Google Fonts:</strong> Les possibles cookies tècniques es basen en l'interès legítim per proporcionar una experiència visual adequada</li>
+                    <li><strong>Recursos locals:</strong> Tots els recursos estan allotjats localment, eliminant qualsevol transferència de dades a tercers</li>
                     <li><strong>Transparència:</strong> Proporcionem aquesta informació per complir amb els principis de transparència del RGPD</li>
                 </ul>
                 
                 <h2>6. Gestió de les Cookies</h2>
                 
                 <h3>6.1 Situació Actual</h3>
-                <p><strong>Aquest lloc web no requereix gestió de cookies</strong> ja que no utilitza cookies pròpies per al seu funcionament. L'únic servei extern (Google Fonts) pot generar cookies tècniques que són gestionades directament pel proveïdor.</p>
+                <p><strong>Aquest lloc web no requereix gestió de cookies</strong> ja que no utilitza cookies pròpies ni de tercers per al seu funcionament. Tots els recursos estan allotjats localment, garantint una experiència completament privada.</p>
                 
                 <h3>6.2 Configuració del Navegador (Opcional)</h3>
                 <p>Si vols bloquejar completament les cookies de tercers, pots configurar el teu navegador:</p>
@@ -349,8 +85,8 @@
                 <p>Si bloqueges totes les cookies:</p>
                 <ul>
                     <li><strong>Funcionament del lloc:</strong> El lloc web continuarà funcionant normalment</li>
-                    <li><strong>Google Fonts:</strong> Les fonts es carregaran igualment, però sense optimitzacions de cache</li>
-                    <li><strong>Experiència d'usuari:</strong> No hi haurà cap impacte negatiu significatiu</li>
+                    <li><strong>Recursos locals:</strong> Tots els recursos (fonts, imatges, estils) es carregaran normalment des del servidor local</li>
+                    <li><strong>Experiència d'usuari:</strong> No hi haurà cap impacte negatiu, ja que no depenem de serveis externs</li>
                 </ul>
                 
                 <h2>7. Actualitzacions d'aquesta Política</h2>
