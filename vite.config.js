@@ -17,7 +17,7 @@ export default defineConfig({
     },
     copyPublicDir: true
   },
-  publicDir: 'src/img/favicon',
+  publicDir: 'public',
   css: {
     preprocessorOptions: {
       scss: {
