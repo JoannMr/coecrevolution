@@ -903,14 +903,12 @@ function initCommitmentsModal() {
       
       let features = '';
       if (featuresList) {
-        const items = featuresList.querySelectorAll('li');
-        if (items.length > 0) {
-          features = '<ul class="commitment-features-modal">';
-          items.forEach(item => {
-            features += `<li>${item.textContent}</li>`;
-          });
-          features += '</ul>';
-        }
+        // Clone the entire features list to preserve nested structure
+        const clonedList = featuresList.cloneNode(true);
+        clonedList.className = 'commitment-features-modal';
+        // Remove the display: none style that was applied in the original HTML
+        clonedList.style.display = '';
+        features = clonedList.outerHTML;
       }
 
       openModal({
