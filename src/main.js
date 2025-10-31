@@ -24,17 +24,18 @@ function initVictoryOverlay() {
   
   if (overlayClosed === 'true') {
     overlay.classList.add('hidden');
+    document.body.classList.remove('overlay-active');
   } else {
     // Show overlay (it's visible by default)
     overlay.classList.remove('hidden');
     // Prevent scrolling on body when overlay is visible
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('overlay-active');
   }
   
   // Close overlay on button click
   closeBtn.addEventListener('click', () => {
     overlay.classList.add('hidden');
-    document.body.style.overflow = '';
+    document.body.classList.remove('overlay-active');
     // Remember that user closed it for this session
     sessionStorage.setItem('victoryOverlayClosed', 'true');
   });
@@ -43,7 +44,7 @@ function initVictoryOverlay() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
       overlay.classList.add('hidden');
-      document.body.style.overflow = '';
+      document.body.classList.remove('overlay-active');
       sessionStorage.setItem('victoryOverlayClosed', 'true');
     }
   });
