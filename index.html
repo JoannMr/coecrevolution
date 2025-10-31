@@ -55,6 +55,11 @@
     <link rel="preload" href="./src/main.js" as="script">
     <link rel="preload" href="./src/img/coec-logo.png" as="image" type="image/png">
     
+    <!-- Font Preloading for Victory Overlay -->
+    <link rel="preload" href="./src/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./src/fonts/Caveat-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./src/fonts/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
+    
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//unpkg.com">
     
@@ -122,8 +127,15 @@
     </script>
     
     <link rel="stylesheet" href="./src/styles/app.scss">
+    
+    <!-- Inline critical CSS to prevent scrollbar flash -->
+    <style>
+        body.overlay-active {
+            overflow: hidden !important;
+        }
+    </style>
 </head>
-<body>
+<body class="overlay-active">
     <!-- Header Navigation -->
     <header class="header" role="banner">
         <nav class="header-nav" role="navigation" aria-label="Navegació principal">
@@ -910,6 +922,22 @@
             </div>
         </div>
     </footer>
+
+    <!-- Victory Overlay -->
+    <div class="victory-overlay" id="victoryOverlay">
+        <div class="victory-content">
+            <div class="instagram-handle">@COECREVOLUTION</div>
+            <h1 class="main-title">Entre totes i tots hem fet que el COEC guanyi. La revolució comença avui!</h1>
+            <p class="description">Hem fet història! La vostra confiança converteix la Dra. Maria José Guerrero en la primera dona presidenta del COEC. El canvi ja és aquí: modernització, transparència i proximitat.</p>
+            <div class="thanks-section">
+                <span class="number">2.145</span>
+                <span class="thanks-text">
+                    Gracies!!
+                </span>
+            </div>
+        </div>
+        <button class="close-overlay-btn" id="closeOverlayBtn">Veure la campanya</button>
+    </div>
 
     <!-- Scripts -->
     <script type="module" src="./src/main.js" defer></script>
