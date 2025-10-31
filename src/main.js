@@ -10,6 +10,46 @@ import SplitType from 'split-type';
 gsap.registerPlugin(ScrollTrigger);
 
 // =============================================================================
+// VICTORY OVERLAY
+// =============================================================================
+
+function initVictoryOverlay() {
+  const overlay = document.getElementById('victoryOverlay');
+  const closeBtn = document.getElementById('closeOverlayBtn');
+  
+  if (!overlay || !closeBtn) return;
+  
+  // Check if user has already closed the overlay in this session
+  const overlayClosed = sessionStorage.getItem('victoryOverlayClosed');
+  
+  if (overlayClosed === 'true') {
+    overlay.classList.add('hidden');
+  } else {
+    // Show overlay (it's visible by default)
+    overlay.classList.remove('hidden');
+    // Prevent scrolling on body when overlay is visible
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // Close overlay on button click
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+    // Remember that user closed it for this session
+    sessionStorage.setItem('victoryOverlayClosed', 'true');
+  });
+  
+  // Optional: Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+      sessionStorage.setItem('victoryOverlayClosed', 'true');
+    }
+  });
+}
+
+// =============================================================================
 // INITIALIZATION
 // =============================================================================
 
@@ -49,6 +89,9 @@ window.addEventListener('beforeunload', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Victory Overlay
+  initVictoryOverlay();
+  
   // Fix hero positioning first
   fixHeroPositioning();
   
